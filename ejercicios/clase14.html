@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Platzi-coins</title>
+    <link rel="stylesheet" href="clase14.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="clase14">
+
+        <h1>
+            Mis Cursos de Platzi💚
+        </h1>
+        <fieldset>
+        <p>
+            <input type="text" placeholder="Titulo del curso" v-model="name"/>
+        </p>
+        <p>
+            <input type="number" placeholder="Horas" v-model="hours"/>
+        </p>
+        <p>
+            <button v-on:click="addCourse">Guardar Curso</button>
+        </p>
+        </fieldset>
+        <div>
+            <h3>Lista de Cursos</h3>
+            <p class="red" v-show=!showCourses>Aun no has realizado cursos</p>
+            
+            <div>
+                <ol v-show=showCourses>
+                    <li 
+                        v-for="c in courses" 
+                        v-bind:key="c.name">
+                        {{ c.name }} - {{ c.hours }} horas
+                    </li>
+                </ol>
+                <hr/>
+                <p>
+                Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+                <b>#NuncaParesDeAprender 💚</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="clase14.js"></script>
+</body>
+
+</html>
